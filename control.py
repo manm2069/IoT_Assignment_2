@@ -33,6 +33,7 @@ class Irrigation_Controller:
         value = int(message.payload.decode("utf-8"))
         topic = message.topic
         Irrigation_Controller.mqtt_data[topic] = value
+#        print(f"Received message on topic '{topic}': {value}")
         # e.g., Irrigation_Controller.mqtt_data["system/temperature"] = 25
         Irrigation_Controller.run_rules()
 
@@ -47,7 +48,7 @@ class Irrigation_Controller:
 #                    print(f"Sending {message[value]} to {message[topic]}")
 
     def evaluate_condition(data, condition):
-#        {"topic":"kitchen/lighting","comparison":"<","value":30},
+#        {"topic":"soil/moisture","comparison":"<","value":30},
         topic = condition["topic"]
         value = data.get(topic,None) # not getting a None when something is missing
         if value == None:
