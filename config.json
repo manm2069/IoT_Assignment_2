@@ -10,6 +10,15 @@
     },
     {"conditions":
         [
+            {"topic":"soil/moisture","comparison":">","value":30}
+        ],
+     "results":
+        [
+            {"topic":"tank/water","value":"close"}
+        ]
+    },
+    {"conditions":
+        [
             {"topic":"tank/humidity","comparison":">","value":20},
             {"topic":"soil/temperature","comparison":">","value":40}
         ],
